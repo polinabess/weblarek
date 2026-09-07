@@ -21,7 +21,7 @@ export const apiProducts = {
             "id": "b06cde61-912f-4663-9751-09956c0eed67",
             "description": "Будет стоять над душой и не давать прокрастинировать.",
             "image": "/Asterisk_2.svg",
-            "title": "Мамка-таймер",
+            "title": "Мама-таймер",
             "category": "софт-скил",
             "price": null
         },
