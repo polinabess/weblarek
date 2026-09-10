@@ -1,15 +1,8 @@
-import type { IProduct } from "../../../types";
+import type { IProduct } from "../../types";
 
 export class Catalog {
-  private products: IProduct[];
+  private products: IProduct[] = [];
   private selectedProduct: IProduct | null = null;
-
-  constructor(initialProducts: IProduct[] = [], initialSelected?: IProduct) {
-    this.products = initialProducts;
-    if (initialSelected) {
-      this.selectedProduct = initialSelected;
-    }
-  }
 
   getProducts(): IProduct[] {
     return this.products;

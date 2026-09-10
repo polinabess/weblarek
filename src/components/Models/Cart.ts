@@ -1,18 +1,14 @@
-import type { IProduct } from "../../../types";
+import type { IProduct } from "../../types";
 
 export class Cart {
   private items: IProduct[] = [];
-
-  constructor(initialProducts: IProduct[] = []){
-    this.items = initialProducts;
-  }
 
   addProduct(product: IProduct): void {
     this.items.push(product);
   }
 
-  removeProduct(product: IProduct): void {
-    this.items = this.items.filter(item => item.id !== product.id);
+  removeProduct(productId: string): void {
+    this.items = this.items.filter(item => item.id !== productId);
   }
 
   getQuantity(): number {

@@ -1,12 +1,11 @@
-import type { IBuyer } from "../../../types";
+import type { IBuyer, TPayment, IBuyerErrors } from "../../types";
 
-import type { TPayment } from "../../../types";
 
 export class Buyer {
   private payment: TPayment | null = null;
-  private email: string | null = null;
-  private phone: string | null = null;
-  private address: string | null = null;
+  private email: string = '';
+  private phone: string = '';
+  private address: string = '';
 
   setPayment(payment: TPayment): void {
     this.payment = payment;
@@ -35,23 +34,30 @@ export class Buyer {
 
   clearData(): void {
     this.payment = null;
-    this.email = null;
-    this.phone = null;
-    this.address = null;
+    this.email = '';
+    this.phone = '';
+    this.address = '';
   }
 
-  validate(): Record<string, string> | {} {
-    const errors: Record<string, string> = {};
+  validate(): IBuyerErrors {
+    const errors: IBuyerErrors = {};
+
     if (!this.payment) {
       errors.payment = 'Не выбран вид оплаты';
     }
-    if (!this.email) {
+
+    const emailTrimmed = this.email.trim();
+    if (!emailTrimmed) {
       errors.email = 'Укажите email';
     }
-    if (!this.phone) {
+
+    const phoneTrimmed = this.phone.trim();
+    if (!phoneTrimmed) {
       errors.phone = 'Укажите номер телефона';
     }
-    if (!this.address) {
+
+    const addressTrimmed = this.address.trim();
+    if (!addressTrimmed) {
       errors.address = 'Укажите адрес доставки';
     }
 

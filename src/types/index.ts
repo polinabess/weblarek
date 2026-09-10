@@ -22,3 +22,23 @@ export interface IBuyer {
   phone: string | null;
   address: string | null;
 }
+
+
+export interface IProductsResponse {
+  total: number;
+  items: IProduct[];
+}
+
+
+export interface IOrder extends IBuyer {
+  items: string[];
+  total: number;
+}
+
+
+export interface IOrderResponse {
+  id: string;
+  total: number;
+}
+
+export type IBuyerErrors = Partial<Record<keyof IBuyer, string>>;
